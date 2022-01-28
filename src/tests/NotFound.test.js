@@ -5,7 +5,7 @@ import NotFound from '../components/NotFound';
 import App from '../App';
 
 describe('Teste o componente <NotFound.js />', () => {
-  test('se página contém um heading h2 com o texto Page requested not found', () => {
+  it('se página contém um heading h2 com o texto Page requested not found', () => {
     const { history } = renderWithRouter(<App />);
 
     history.push('/pagina/que-nao-existe/');
@@ -16,7 +16,7 @@ describe('Teste o componente <NotFound.js />', () => {
     expect(heading).toHaveTextContent('Page requested not found');
   });
 
-  test('se página mostra a imagem https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif', () => {
+  it('se página mostra a imagem https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif', () => {
     renderWithRouter(<NotFound />);
 
     const img = screen.getByAltText(/Pikachu crying/i);

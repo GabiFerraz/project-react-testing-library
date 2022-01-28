@@ -6,7 +6,7 @@ import FavoritePokemons from '../components/FavoritePokemons';
 import App from '../App';
 
 describe('Teste o componente <FavoritePokemons.js />', () => {
-  test(`se é exibido na tela a mensagem No favorite pokemon found,
+  it(`se é exibido na tela a mensagem No favorite pokemon found,
     se a pessoa não tiver pokémons favoritos`, () => {
     renderWithRouter(<FavoritePokemons />);
 
@@ -14,7 +14,7 @@ describe('Teste o componente <FavoritePokemons.js />', () => {
     expect(noFavorite).toBeInTheDocument();
   });
 
-  test('se é exibido todos os cards de pokémons favoritados', () => {
+  it('se é exibido todos os cards de pokémons favoritados', () => {
     renderWithRouter(<App />);
 
     const moreDetails = screen.getByRole('link', { name: /More details/i });

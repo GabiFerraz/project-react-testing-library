@@ -5,7 +5,7 @@ import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
 describe('Teste o componente <App.js />', () => {
-  test('se o topo da aplicação contém um conjunto fixo de links de navegação',
+  it('se o topo da aplicação contém um conjunto fixo de links de navegação',
     () => {
       renderWithRouter(<App />);
 
@@ -19,7 +19,7 @@ describe('Teste o componente <App.js />', () => {
       expect(favoritePokesLink).toBeInTheDocument();
     });
 
-  test(`se a aplicação é redirecionada para a página inicial,
+  it(`se a aplicação é redirecionada para a página inicial,
     na URL / ao clicar no link Home da barra de navegação`, () => {
     const { history } = renderWithRouter(<App />);
 
@@ -32,7 +32,7 @@ describe('Teste o componente <App.js />', () => {
     expect(pathname).toBe('/');
   });
 
-  test(`se a aplicação é redirecionada para a página de About, na URL /about,
+  it(`se a aplicação é redirecionada para a página de About, na URL /about,
     ao clicar no link About da barra de navegação`, () => {
     const { history } = renderWithRouter(<App />);
 
@@ -45,7 +45,7 @@ describe('Teste o componente <App.js />', () => {
     expect(pathname).toBe('/about');
   });
 
-  test(`se a aplicação é redirecionada para a página de Pokémons Favoritados,
+  it(`se a aplicação é redirecionada para a página de Pokémons Favoritados,
     na URL /favorites, ao clicar no link Favorite Pokémons da barra de navegação`, () => {
     const { history } = renderWithRouter(<App />);
 
@@ -58,7 +58,7 @@ describe('Teste o componente <App.js />', () => {
     expect(pathname).toBe('/favorites');
   });
 
-  test(`se a aplicação é redirecionada para a página Not Found ao entrar em
+  it(`se a aplicação é redirecionada para a página Not Found ao entrar em
     uma URL desconhecida`, () => {
     const { history } = renderWithRouter(<App />);
 

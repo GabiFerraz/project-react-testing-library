@@ -4,7 +4,7 @@ import renderWithRouter from '../renderWithRouter';
 import About from '../components/About';
 
 describe('Teste o componente <About.js />', () => {
-  test('se a página contém as informações sobre a Pokédex', () => {
+  it('se a página contém as informações sobre a Pokédex', () => {
     renderWithRouter(<About />);
 
     const pokeInfo1 = screen.getByText(/This application simulates a Pokédex/i);
@@ -14,14 +14,14 @@ describe('Teste o componente <About.js />', () => {
     expect(pokeInfo2).toBeInTheDocument();
   });
 
-  test('se a página contém um heading h2 com o texto About Pokédex', () => {
+  it('se a página contém um heading h2 com o texto About Pokédex', () => {
     renderWithRouter(<About />);
 
     const heading = screen.getByRole('heading', { level: 2, name: /About Pokédex/i });
     expect(heading).toBeInTheDocument();
   });
 
-  test('se a página contém dois parágrafos com texto sobre a Pokédex', () => {
+  it('se a página contém dois parágrafos com texto sobre a Pokédex', () => {
     renderWithRouter(<About />);
 
     const pokeInfo1 = screen.getByText(/This application simulates a Pokédex/i);
@@ -30,12 +30,12 @@ describe('Teste o componente <About.js />', () => {
     expect(pokeInfos).toHaveLength(2);
   });
 
-  test('se a página contém a imagem de uma Pokédex', () => {
+  it('se a página contém a imagem de uma Pokédex', () => {
     renderWithRouter(<About />);
 
     const src = 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png';
     const img = screen.getByRole('img', { alt: /Pokédex/i });
     expect(img).toBeInTheDocument();
-    expect(img.src).toBe(src);
+    expect(img).toHaveAttribute('src', src);
   });
 });
