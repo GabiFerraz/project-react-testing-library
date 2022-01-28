@@ -17,7 +17,6 @@ describe('Teste o componente <FavoritePokemons.js />', () => {
   test('se é exibido todos os cards de pokémons favoritados', () => {
     renderWithRouter(<App />);
 
-    // history.push()
     const moreDetails = screen.getByRole('link', { name: /More details/i });
     expect(moreDetails).toBeInTheDocument();
     userEvent.click(moreDetails);
