@@ -39,7 +39,46 @@ describe('Teste o componente <Pokedex.js />', () => {
     expect(imgPokemon).toHaveLength(1);
   });
 
-  // it('se a Pokédex tem os botões de filtro', () => {
+  it('se a Pokédex tem os botões de filtro', () => {
+    renderWithRouter(<App />);
 
-  // });
+    // pokemons.forEach(({ type }) => {
+    //   const typesButton = screen.getByRole('button', { name: type });
+    //   expect(typesButton).toBeInTheDocument();
+    // });
+
+    pokemons.forEach((pokemon) => {
+      const buttonType = screen.getByRole('button', { name: pokemon.type });
+      expect(buttonType).toBeInTheDocument();
+      expect(buttonType).toHaveTextContent(pokemon.type);
+    });
+
+    const numberButtons = 7;
+    const buttonType = screen.getAllByTestId('pokemon-type-button');
+    expect(buttonType).toHaveLength(numberButtons);
+
+    const buttonFire = screen.getByRole('button', { name: 'Fire' });
+    userEvent.click(buttonFire);
+    const currentName = screen.getByText('Charmander');
+    expect(currentName).toBeInTheDocument();
+    const buttonNext = screen.getByRole('button', { name: /Próximo pokémon/i });
+    userEvent.click(buttonNext);
+    const nextName = screen.getByText('Rapidash');
+    expect(nextName).toBeInTheDocument();
+
+    const buttonAll = screen.getByText('All');
+    expect(buttonAll).toBeVisible();
+  });
+
+  it('se a Pokédex contém um botão para resetar o filtro', () => {
+    renderWithRouter(<App />);
+
+    const buttonAll = screen.getByText('All');
+    expect(buttonAll).toHaveTextContent('All');
+
+    userEvent.click(buttonAll);
+
+    const currentPokemon = screen.getByText('Pikachu');
+    expect(currentPokemon).toBeInTheDocument();
+  });
 });
