@@ -42,11 +42,6 @@ describe('Teste o componente <Pokedex.js />', () => {
   it('se a Pokédex tem os botões de filtro', () => {
     renderWithRouter(<App />);
 
-    // pokemons.forEach(({ type }) => {
-    //   const typesButton = screen.getByRole('button', { name: type });
-    //   expect(typesButton).toBeInTheDocument();
-    // });
-
     pokemons.forEach((pokemon) => {
       const buttonType = screen.getByRole('button', { name: pokemon.type });
       expect(buttonType).toBeInTheDocument();
