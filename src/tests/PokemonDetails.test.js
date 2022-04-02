@@ -53,7 +53,6 @@ describe('Teste o componente <PokemonDetails.js />', () => {
 
     const pokemonFavoritado = screen.getByLabelText(/Pokémon favoritado?/i);
     expect(pokemonFavoritado).toBeInTheDocument();
-    // expect(pokemonFavoritado).toHaveTextContent(/Pokémon favoritado?/i);
 
     userEvent.click(pokemonFavoritado);
 
